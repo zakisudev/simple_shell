@@ -49,7 +49,7 @@ int main(void)
 	ssize_t len = 0;
 	char *buff = NULL, *value, *pathname, **arv;
 	size_t size = 0;
-	list_path *head = '\0';
+	list_path *head = NULL;
 	void (*f)(char **);
 
 	signal(SIGINT, sig_handler);
