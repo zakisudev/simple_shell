@@ -60,7 +60,7 @@ void _set_env(char **arv)
 	{
 
 		environ[i] = _str_cnct(arv[1], "=", arv[2]);
-		environ[i + 1] = '\0';
+		environ[i + 1] = NULL;
 
 	}
 }
