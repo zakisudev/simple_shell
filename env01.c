@@ -7,7 +7,7 @@
  */
 int env_wrapper(inf_o *inf)
 {
-	print_str(inf->env);
+	pstr_list(inf->env);
 	return (0);
 }
 /**
@@ -40,7 +40,7 @@ int set_env(inf_o *inf)
 {
 	if (inf->argc != 3)
 	{
-		_put_errors("Incorrect number of arguments\n");
+		_puts_error("Incorrect number of arguments\n");
 		return (1);
 	}
 	if (set_up_en_var(inf, inf->argv[1], inf->argv[2]))
