@@ -24,14 +24,14 @@ void populate_info(inf_o *inf, char **v)
 	inf->fn = v[0];
 	if (inf->arg)
 	{
-		inf->argv = strtok1(inf->arg, " \t");
+		inf->argv = str_tok1(inf->arg, " \t");
 		if (!inf->argv)
 		{
 
 			inf->argv = malloc(sizeof(char *) * 2);
 			if (inf->argv)
 			{
-				inf->argv[0] = _strdup(inf->arg);
+				inf->argv[0] = _duplicate_string(inf->arg);
 				inf->argv[1] = NULL;
 			}
 		}
@@ -39,8 +39,8 @@ void populate_info(inf_o *inf, char **v)
 			;
 		inf->argc = i;
 
-		re_alias(inf);
-		re_vars(inf);
+		cmd_aliasing(inf);
+		cmd_var_sub(inf);
 	}
 }
 
@@ -59,11 +59,11 @@ void info_free(inf_o *inf, int l)
 		if (!inf->cmdb)
 			free(inf->arg);
 		if (inf->env)
-			fr_list(&(inf->env));
+			list_free(&(inf->env));
 		if (inf->hist)
-			fr_list(&(inf->hist));
+			list_free(&(inf->hist));
 		if (inf->alias)
-			fr_list(&(inf->alias));
+			list_free(&(inf->alias));
 		ffr(inf->environ);
 			inf->environ = NULL;
 		block_free((void **)inf->cmdb);
