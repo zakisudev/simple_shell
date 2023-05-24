@@ -11,8 +11,8 @@ int str_to_int(char *str)
     int sign = 1;
     unsigned long int l = 0;
 
-    if (str == NULL)
-        return -1;
+	if (str == NULL)
+		return -1;
 
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
@@ -52,13 +52,13 @@ int str_to_int(char *str)
  */
 void error_pnt(inf_o *inf, char *str)
 {
-	_eputs(inf->fn);
-	_eputs(": ");
+	_puts_error(inf->fn);
+	_puts_error(": ");
 	int_pnt(inf->lcount, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(inf->argv[0]);
-	_eputs(": ");
-	_eputs(str);
+	_puts_error(": ");
+	_puts_error(inf->argv[0]);
+	_puts_error(": ");
+	_puts_error(str);
 }
 
 /**
@@ -74,7 +74,7 @@ int int_pnt(int in, int f)
 	unsigned int s, cr;
 
 	if (f == STDERR_FILENO)
-		__putchar = _eputchar;
+		__putchar = _put_error_char;
 	if (in < 0)
 	{
 		s = -in;
