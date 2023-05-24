@@ -40,7 +40,7 @@ int set_env(inf_o *inf)
 {
 	if (inf->argc != 3)
 	{
-		_put_errors("Incorrect number of arguments\n");
+		_puts_error("Incorrect number of arguments\n");
 		return (1);
 	}
 	if (set_up_en_var(inf, inf->argv[1], inf->argv[2]))
@@ -59,7 +59,7 @@ int unset_env(inf_o *inf)
 
 	if (inf->argc == 1)
 	{
-		_put_errors("Too few arguments.\n");
+		_puts_error("Too few arguments.\n");
 		return (1);
 	}
 	while (j <= inf->argc)
