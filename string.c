@@ -70,33 +70,6 @@ char *_str_cnct(char *name, char *sep, char *value)
 }
 
 /**
- * _strtoint - converts a string into an integer
- * @s: pointer to a string
- * Return: the integer
- */
-int _strtoint(char *s)
-{
-	int i, intgr, sign = 1;
-
-	i = 0;
-	intgr = 0;
-	while (!((s[i] >= '0') && (s[i] <= '9')) && (s[i] != '\0'))
-	{
-		if (s[i] == '-')
-		{
-			sign = sign * (-1);
-		}
-		i++;
-	}
-	while ((s[i] >= '0') && (s[i] <= '9'))
-	{
-		intgr = (intgr * 10) + (sign * (s[i] - '0'));
-		i++;
-	}
-	return (intgr);
-}
-
-/**
  * _strlen - prints the length of a string
  * @s: pointer to the string
  * Return: the length of string
