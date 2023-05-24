@@ -9,7 +9,7 @@ char **get_env(inf_o *inf)
 {
 	if (!inf->environ || inf->env_ch)
 	{
-		inf->environ = l_to_s(inf->env);
+		inf->environ = lst_to_str(inf->env);
 		inf->env_ch = 0;
 	}
 
@@ -33,10 +33,10 @@ int unset_en_var(inf_o *inf, char *l)
 
 	while (n)
 	{
-		k = st_wi(n->str, l);
+		k = hay_need(n->str, l);
 		if (k && *k == '=')
 		{
-			inf->env_ch = delete_node_at_i(&(inf->env), i);
+			inf->env_ch = node_delete(&(inf->env), i);
 			i = 0;
 			n = inf->env;
 			continue;
@@ -63,16 +63,16 @@ int set_up_ev_var(inf_o *inf, char *l, char *i)
 	if (!l || !i)
 		return (0);
 
-	b = malloc(_strlen(l) + _strlen(i) + 2);
+	b = malloc(_length_str(l) + _length_str(i) + 2);
 	if (!b)
 		return (1);
-	_strcpy(b, l);
-	_strcat(b, "=");
-	_strcat(b, i);
+	_copy_string(b, l);
+	_app_str(b, "=");
+	_app_str(b, i);
 	n = inf->env;
 	while (n)
 	{
-		k = st_wi(n->str, l);
+		k = hay_need(n->str, l);
 		if (k && *k == '=')
 		{
 			free(n->str);
@@ -82,7 +82,7 @@ int set_up_ev_var(inf_o *inf, char *l, char *i)
 		}
 		n = n->next;
 	}
-	add_node_end(&(inf->env), b, 0);
+	add_beg_list(&(inf->env), b, 0);
 	free(b);
 	inf->env_ch = 1;
 	return (0);
