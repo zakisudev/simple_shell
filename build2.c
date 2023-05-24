@@ -11,12 +11,12 @@ int eexit(inf_o *inf)
 
 	if (inf->argv[1])
 	{
-		x = str_to_int(inf->argv[1]);
+		x = _str_to_int(inf->argv[1]);
 		if (x == -1)
 		{
 			inf->stat = 2;
 			error_pnt(inf, "Illegal number: ");
-			_put_errors(inf->argv[1]);
+			_put_error(inf->argv[1]);
 			_put_error_char('\n');
 			return (1);
 		}
@@ -43,9 +43,9 @@ int handle_cd(inf_o *inf)
 
 	if (!inf->argv[1])
 	{
-		d = genv(inf, "HOME=");
+		d = get_env_var(inf, "HOME=");
 		if (!d)
-			d = genv(inf, "PWD=");
+			d = get_env_var(inf, "PWD=");
 		if (!d)
 			d = "/";
 		r = chdir(d);
@@ -68,13 +68,13 @@ int handle_cd(inf_o *inf)
 
 	if (r == -1)
 	{
-		errpr_pnt(inf, "can't cd to ");
+		error_pnt(inf, "can't cd to ");
 		_put_errors(inf->argv[1]), _put_error_char('\n');
 	}
 	else
 	{
-		set_up_env_var(inf, "OLDPWD", get_env_var(inf, "PWD="));
-		set_up_env_var(inf, "PWD", getcwd(b, 1024));
+		set_up_en_var(inf, "OLDPWD", get_env_var(inf, "PWD="));
+		set_up_en_var(inf, "PWD", getcwd(b, 1024));
 	}
 	return (0);
 }
