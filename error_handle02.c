@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _put_errors - prints error to the standard error
+ * _puts_error - prints error to the standard error
  * @s: char var
  */
-void _put_errors(char *s)
+void _puts_error(char *s)
 {
 	int i = 0;
 
