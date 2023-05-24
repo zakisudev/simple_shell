@@ -108,7 +108,7 @@ int handle_help(inf_o *inf)
  * @c: var
  * Return: NULL
  */
-char *str_srch(char *s, char c)
+char *_str_srch(char *s, char c)
 {
 	do {
 		if (*s == c)
