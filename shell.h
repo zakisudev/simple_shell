@@ -16,7 +16,7 @@ int _putchar(char c);
 void _puts(char *str);
 int _strlen(char *s);
 char *_str_dup(char *str);
-char *_str_cnct (char *name, char *sep, char *value);
+char *_str_cnct(char *name, char *sep, char *value);
 
 void(*_builtin_check(char **arv))(char **arv);
 int _strtoint(char *s);
