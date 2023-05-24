@@ -87,3 +87,19 @@ int set_up_en_var(inf_o *inf, char *l, char *i)
 	inf->env_ch = 1;
 	return (0);
 }
+
+/**
+ * penv_list - function for printing environment
+ * @inf: var
+ * Return: 0
+ */
+ int penv_list(inf_o *inf)
+{
+	lists_t *n = NULL;
+	size_t j;
+
+	for (j = 0; environ[j]; j++)
+		add_beg_list(&n, environ[j], 0);
+	inf->env = n;
+	return (0);
+}
