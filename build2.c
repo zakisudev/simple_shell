@@ -11,16 +11,16 @@ int eexit(inf_o *inf)
 
 	if (inf->argv[1])
 	{
-		x = _eatoi(inf->argv[1]);
+		x = str_to_int(inf->argv[1]);
 		if (x == -1)
 		{
 			inf->stat = 2;
-			p_err(inf, "Illegal number: ");
-			_eputs(inf->argv[1]);
-			_eputchar('\n');
+			error_pnt(inf, "Illegal number: ");
+			_put_errors(inf->argv[1]);
+			_put_error_char('\n');
 			return (1);
 		}
-		inf->err_n = _eatoi(inf->argv[1]);
+		inf->err_n = str_to_int(inf->argv[1]);
 		return (-2);
 	}
 	inf->err_n = -1;
@@ -39,34 +39,37 @@ int handle_cd(inf_o *inf)
 
 	s = getcwd(b, 1024);
 	if (!s)
-		_puts("TODO: >>getcd failure emsg here<<\n");
+		_puts("ERROR\n");
+
 	if (!inf->argv[1])
 	{
-		d = get_env_var(inf, "HOME=");
+		d = genv(inf, "HOME=");
 		if (!d)
-			r = /* TODO: what should this be? */
-				chdir((d = get_env_var(inf, "PWD=")) ? d : "/");
-		else
-			r = chdir(d);
+			d = genv(inf, "PWD=");
+		if (!d)
+			d = "/";
+		r = chdir(d);
 	}
-	else if (_strcmp(inf->argv[1], "-") == 0)
+	else if (_compare_str(inf->argv[1], "-") == 0)
 	{
-		if (!get_env_var(inf, "OLDPWD="))
+		d = get_env_var(inf, "OLDPWD=");
+		if (!d)
 		{
 			_puts(s);
 			_putchar('\n');
-			return (1);
+			return 1;
 		}
-		_puts(get_env_var(inf, "OLDPWD=")), _putchar('\n');
-		r = /* TODO: what should this be? */
-			chdir((d = get_env_var(inf, "OLDPWD=")) ? d : "/");
+		_puts(d);
+		_putchar('\n');
+		r = chdir(d);
 	}
 	else
 		r = chdir(inf->argv[1]);
+
 	if (r == -1)
 	{
-		p_err(inf, "can't cd to ");
-		_eputs(inf->argv[1]), _eputchar('\n');
+		errpr_pnt(inf, "can't cd to ");
+		_put_errors(inf->argv[1]), _put_error_char('\n');
 	}
 	else
 	{
