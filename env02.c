@@ -54,7 +54,7 @@ int unset_en_var(inf_o *inf, char *l)
  * @i: var
  * Return: 0
  */
-int set_up_ev_var(inf_o *inf, char *l, char *i)
+int set_up_en_var(inf_o *inf, char *l, char *i)
 {
 	char *b = NULL;
 	lists_t *n;
