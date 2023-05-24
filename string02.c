@@ -64,7 +64,7 @@ void info_free(inf_o *inf, int l)
 			list_free(&(inf->hist));
 		if (inf->alias)
 			list_free(&(inf->alias));
-		ffr(inf->environ);
+		free_mem(inf->environ);
 			inf->environ = NULL;
 		block_free((void **)inf->cmdb);
 		if (inf->readfd > 2)
