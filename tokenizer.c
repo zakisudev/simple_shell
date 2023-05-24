@@ -38,7 +38,8 @@ char **tokenizer(char *str, const char *delim)
 	while (token)
 	{
 		token = strtok(NULL, delim);
-		ptr_array = _realloc(ptr_array, (sizeof(char *) * (num_word - 1)), (sizeof(char *) * num_word));
+		ptr_array = _realloc(ptr_array, (sizeof(char *) *
+		(num_word - 1)), (sizeof(char *) * num_word));
 		ptr_array[i] = _str_dup(token);
 		i++;
 		num_word++;
