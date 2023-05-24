@@ -103,7 +103,7 @@ int handle_help(inf_o *inf)
 }
 
 /**
- * str_srch - search specific char in string
+ * _str_srch - search specific char in string
  * @s: var
  * @c: var
  * Return: NULL
