@@ -16,11 +16,11 @@ int eexit(inf_o *inf)
 		{
 			inf->stat = 2;
 			error_pnt(inf, "Illegal number: ");
-			_put_error(inf->argv[1]);
+			_puts_error(inf->argv[1]);
 			_put_error_char('\n');
 			return (1);
 		}
-		inf->err_n = str_to_int(inf->argv[1]);
+		inf->err_n = _str_to_int(inf->argv[1]);
 		return (-2);
 	}
 	inf->err_n = -1;
@@ -69,7 +69,7 @@ int handle_cd(inf_o *inf)
 	if (r == -1)
 	{
 		error_pnt(inf, "can't cd to ");
-		_put_errors(inf->argv[1]), _put_error_char('\n');
+		_puts_error(inf->argv[1]), _put_error_char('\n');
 	}
 	else
 	{
