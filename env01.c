@@ -23,7 +23,7 @@ char *get_env_var(inf_o *inf, const char *name)
 
 	while (n)
 	{
-		p = st_wi(n->str, name);
+		p = hay_need(n->str, name);
 		if (p && *p)
 			return (p);
 		n = n->next;
@@ -40,10 +40,10 @@ int set_env(inf_o *inf)
 {
 	if (inf->argc != 3)
 	{
-		_eputs("Incorrect number of arguments\n");
+		_put_errors("Incorrect number of arguments\n");
 		return (1);
 	}
-	if (stenv(inf, inf->argv[1], inf->argv[2]))
+	if (set_up_en_var(inf, inf->argv[1], inf->argv[2]))
 		return (0);
 	return (1);
 }
@@ -59,12 +59,12 @@ int unset_env(inf_o *inf)
 
 	if (inf->argc == 1)
 	{
-		_eputs("Too few arguments.\n");
+		_put_errors("Too few arguments.\n");
 		return (1);
 	}
 	while (j <= inf->argc)
 	{
-		_unsetenv(inf, inf->argv[j]);
+		unset_en_var(inf, inf->argv[j]);
 		j++;
 	}
 
@@ -82,7 +82,7 @@ int create_list_env(inf_o *inf)
 	size_t j;
 
 	for (j = 0; environ[j]; j++)
-		add_node_end(&n, environ[j], 0);
+		add_beg_list(&n, environ[j], 0);
 	inf->env = n;
 	return (0);
 }
