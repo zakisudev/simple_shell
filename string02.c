@@ -51,7 +51,7 @@ void populate_info(inf_o *inf, char **v)
  */
 void info_free(inf_o *inf, int l)
 {
-	ffr(inf->argv);
+	free_mem(inf->argv);
 	inf->argv = NULL;
 	inf->path = NULL;
 	if (l)
