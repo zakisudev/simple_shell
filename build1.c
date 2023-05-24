@@ -49,7 +49,7 @@ int create_aliases(inf_o *inf, char *s)
 	if (!*++p)
 		return (rm_aliases(inf, s));
 
-	re_aliases(inf, s);
+	cmd_aliasing(inf, s);
 	return (add_beg_list(&(inf->alias), s, 0) == NULL);
 }
 
