@@ -56,7 +56,7 @@ char *cmd_executable(inf_o *inf, char *ps, char *c)
 
 	if (!ps)
 		return (NULL);
-	if ((_strlen(c) > 2) && st_wi(c, "./"))
+	if ((_length_str(c) > 2) && hay_need(c, "./"))
 	{
 		if (command_valid(inf, c))
 			return (c);
@@ -65,13 +65,13 @@ char *cmd_executable(inf_o *inf, char *ps, char *c)
 	{
 		if (!ps[j] || ps[j] == ':')
 		{
-			p = char_dp(ps, cr, j);
+			p = get_substr(ps, cr, j);
 			if (!*p)
-				_strcat(p, c);
+				_app_str(p, c);
 			else
 			{
-				_strcat(p, "/");
-				_strcat(p, c);
+				_app_str(p, "/");
+				_app_str(p, c);
 			}
 			if (command_valid(inf, p))
 				return (p);
