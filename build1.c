@@ -22,7 +22,7 @@ int rm_aliases(inf_o *inf, char *s)
 	char *p, i;
 	int t;
 
-	p = str_srch(s, '=');
+	p = _str_srch(s, '=');
 	if (!p)
 		return (1);
 	i = *p;
@@ -43,7 +43,7 @@ int create_aliases(inf_o *inf, char *s)
 {
 	char *p;
 
-	p = str_srch(s, '=');
+	p = _str_srch(s, '=');
 	if (!p)
 		return (1);
 	if (!*++p)
@@ -64,7 +64,7 @@ int pnt_alias(lists_t *n)
 
 	if (n)
 	{
-		p = str_srch(n->str, '=');
+		p = _str_srch(n->str, '=');
 		for (s = n->str; s <= p; s++)
 			_putchar(*s);
 		_putchar('\'');
@@ -98,7 +98,7 @@ int mng_alias(inf_o *inf)
 	}
 	for (j = 1; inf->argv[j]; j++)
 	{
-		p = str_srch(inf->argv[j], '=');
+		p = _str_srch(inf->argv[j], '=');
 		if (p)
 			create_aliases(inf, inf->argv[j]);
 		else
