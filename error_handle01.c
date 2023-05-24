@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * str_to_int - converts string to integer
+ * _str_to_int - converts string to integer
  * @str: string
  * Return: l or -1 on error
  */
-int str_to_int(char *str)
+int _str_to_int(char *str)
 {
     int i = 0;
     int sign = 1;
