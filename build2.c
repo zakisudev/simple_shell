@@ -40,7 +40,6 @@ int handle_cd(inf_o *inf)
 	s = getcwd(b, 1024);
 	if (!s)
 		_puts("ERROR\n");
-
 	if (!inf->argv[1])
 	{
 		d = get_env_var(inf, "HOME=");
@@ -65,7 +64,6 @@ int handle_cd(inf_o *inf)
 	}
 	else
 		r = chdir(inf->argv[1]);
-
 	if (r == -1)
 	{
 		error_pnt(inf, "can't cd to ");
