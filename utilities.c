@@ -88,7 +88,7 @@ char *check_path(char *cmd)
 	char *path = _getenv("PATH");
 	int i;
 
-	if (path == NULL || _strlen(path) == 0)
+	if (path == NULL || __strlen(path) == 0)
 		return (NULL);
 	path_cpy = malloc(sizeof(*path_cpy) * (_strlen(path) + 1));
 	__strcpy(path, path_cpy);
