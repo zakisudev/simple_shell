@@ -57,7 +57,7 @@ int handle_cd(inf_o *inf)
 		{
 			_puts(s);
 			_putchar('\n');
-			return 1;
+			return (1);
 		}
 		_puts(d);
 		_putchar('\n');
