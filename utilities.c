@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 /** get_cmd - determines the type of the command
  * @cmd: command to be parsed
