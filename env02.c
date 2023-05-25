@@ -93,7 +93,7 @@ int set_up_en_var(inf_o *inf, char *l, char *i)
  * @inf: var
  * Return: 0
  */
- int penv_list(inf_o *inf)
+int penv_list(inf_o *inf)
 {
 	lists_t *n = NULL;
 	size_t j;
