@@ -28,14 +28,14 @@ int main(int argc __attribute__((unused)), char **argv)
 	shell_name = argv[0];
 	while (1)
 	{
-		non_interactive();
-		print("$ ", STDOUT_FILENO);
+		is_noninteractive();
+		_stdout("$ ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
 			free(line);
 			exit(status);
 		}
-			remove_newline(line);
+			_newline(line);
 			remove_comment(line);
 			commands = tokenizer(line, ";");
 
@@ -47,7 +47,7 @@ int main(int argc __attribute__((unused)), char **argv)
 				free(cmd);
 				break;
 			}
-			t_command = parse_command(cmd[0]);
+			t_command = get_command(cmd[0]);
 
 			initializer(cmd, t_command);
 			free(cmd);
