@@ -24,5 +24,5 @@ void commander(char **c_command, int t_command)
 		}
 	}
 	else
-		execute_command(c_command, t_command);
+		execcmd(c_command, t_command);
 }
