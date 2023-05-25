@@ -51,35 +51,24 @@ char *get_substr(char *p, int s, int st)
  */
 char *cmd_executable(inf_o *inf, char *ps, char *c)
 {
-	int j = 0, cr = 0;
-	char *p;
+	char *path_copy = _duplicate_string(ps);
+	char *token = strtok(path_copy, ":");
+	char *executable_path = build_path(token, c);
 
-	if (!ps)
+	if (!path_copy)
 		return (NULL);
-	if ((_length_str(c) > 2) && hay_need(c, "./"))
+
+	while (token != NULL)
 	{
-		if (command_valid(inf, c))
-			return (c);
-	}
-	while (1)
-	{
-		if (!ps[j] || ps[j] == ':')
+		if (executable_path != NULL && access(executable_path, X_OK) == 0)
 		{
-			p = get_substr(ps, cr, j);
-			if (!*p)
-				_app_str(p, c);
-			else
-			{
-				_app_str(p, "/");
-				_app_str(p, c);
-			}
-			if (command_valid(inf, p))
-				return (p);
-			if (!ps[j])
-				break;
-			cr = j;
+			free(path_copy);
+			return (executable_path);
 		}
-		j++;
+		if(command_valid(inf, path_copy))
+			return(path_copy);
+		free(executable_path);
+		token = strtok(NULL, ":");
 	}
 	return (NULL);
 }
