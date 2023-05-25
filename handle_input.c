@@ -33,7 +33,7 @@ ssize_t buf_save(inf_o *inf, char **b, size_t *l)
 			inf->cmdb = b;
 		}
 	}
-	return s;
+	return (s);
 }
 
 /**
