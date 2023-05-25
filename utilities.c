@@ -62,7 +62,7 @@ void execcmd(char **tok_command, int command_type)
 	}
 	if (command_type == INTERNAL_COMMAND)
 	{
-		func = get_func(tok_command[0]);
+		func = parse_func(tok_command[0]);
 		func(tok_command);
 	}
 	if (command_type == INVALID_COMMAND)
@@ -122,7 +122,7 @@ void (*parse_func(char *cmd))(char **)
 {
 	int i;
 	function_map mapping[] = {
-		{"env", env}, {"exit", exit}
+		{"env", p_env}, {"exit", eexit}
 	};
 
 	for (i = 0; i < 2; i++)
