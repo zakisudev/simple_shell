@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 char **commands = NULL;
 char *line = NULL;
