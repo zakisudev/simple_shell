@@ -28,7 +28,6 @@ int main(int argc __attribute__((unused)), char **argv)
 	shell_name = argv[0];
 	while (1)
 	{
-		is_noninteractive();
 		_stdout("$ ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
