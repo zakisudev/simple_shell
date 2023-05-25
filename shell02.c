@@ -47,9 +47,9 @@ int main(int argc __attribute__((unused)), char **argv)
 				free(cmd);
 				break;
 			}
-			t_command = get_command(cmd[0]);
+			t_command = get_cmd(cmd[0]);
 
-			initializer(cmd, t_command);
+			commander(cmd, t_command);
 			free(cmd);
 		}
 		free(commands);
