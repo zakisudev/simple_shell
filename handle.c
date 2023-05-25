@@ -25,7 +25,7 @@ char **tokenizer(char *input_string, char *delim)
 		n_delim++;
 	}
 
-	av = _realloc(av, sizeof(*av) * num_delim, sizeof(*av) * (n_delim + 1));
+	av = _realloc(av, sizeof(*av) * n_delim, sizeof(*av) * (n_delim + 1));
 	av[n_delim] = NULL;
 
 	return (av);
