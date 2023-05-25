@@ -25,7 +25,7 @@ void penv(char **cmd __attribute__((unused)))
  * Return: void
  */
 
-voide exit(char **cmd)
+void eexit(char **cmd)
 {
 	int token = 0, arg;
 
