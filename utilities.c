@@ -67,10 +67,10 @@ void execcmd(char **tok_command, int command_type)
 	}
 	if (command_type == INVALID_COMMAND)
 	{
-		print(shell_name, STDERR_FILENO);
-		print(": 1: ", STDERR_FILENO);
-		print(tok_command[0], STDERR_FILENO);
-		print(": not found\n", STDERR_FILENO);
+		_stdout(shell_name, STDERR_FILENO);
+		_stdout(": 1: ", STDERR_FILENO);
+		_stdout(tok_command[0], STDERR_FILENO);
+		_stdout(": not found\n", STDERR_FILENO);
 		status = 127;
 	}
 }
@@ -91,7 +91,7 @@ char *check_path(char *cmd)
 	if (path == NULL || _strlen(path) == 0)
 		return (NULL);
 	path_cpy = malloc(sizeof(*path_cpy) * (_strlen(path) + 1));
-	_strcpy(path, path_cpy);
+	__strcpy(path, path_cpy);
 	path_array = tokenizer(path_cpy, ":");
 	for (i = 0; path_array[i] != NULL; i++)
 	{
@@ -122,7 +122,7 @@ void (*parse_func(char *cmd))(char **)
 {
 	int i;
 	function_map mapping[] = {
-		{"env", env}, {"exit", quit}
+		{"env", p_env}, {"exit", eexit}
 	};
 
 	for (i = 0; i < 2; i++)
