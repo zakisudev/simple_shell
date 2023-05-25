@@ -8,8 +8,8 @@
  */
 int main(int ac, char **av)
 {
-	inf_o inf[] = { INF_IN };
 	int fd = 2;
+	inf_o inf[] = { INF_IN };
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
