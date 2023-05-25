@@ -13,8 +13,8 @@ void penv(char **cmd __attribute__((unused)))
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		print(environ[i], STDOUT_FILENO);
-		print("\n", STDOUT_FILENO);
+		_stdout(environ[i], STDOUT_FILENO);
+		_stdout("\n", STDOUT_FILENO);
 	}
 }
 
@@ -43,10 +43,10 @@ void eexit(char **cmd)
 		arg = _atoi(cmd[1]);
 		if (arg == -1)
 		{
-			print(shell_name, STDERR_FILENO);
-			print(": 1: exit: Illegal number: ", STDERR_FILENO);
-			print(cmd[1], STDERR_FILENO);
-			print("\n", STDERR_FILENO);
+			_stdout(shell_name, STDERR_FILENO);
+			_stdout(": 1: exit: Illegal number: ", STDERR_FILENO);
+			_stdout(cmd[1], STDERR_FILENO);
+			_stdout("\n", STDERR_FILENO);
 			status = 2;
 		}
 		else
@@ -58,5 +58,5 @@ void eexit(char **cmd)
 		}
 	}
 	else
-		print("$: exit doesn't take more than one argument\n", STDERR_FILENO);
+		_stdout("$: exit doesn't take more than one argument\n", STDERR_FILENO);
 }
