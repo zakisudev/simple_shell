@@ -135,9 +135,8 @@ void cmd_fokr(inf_o *inf)
 		if (execve(inf->path, inf->argv, get_env(inf)) == -1)
 		{
 			info_free(inf, 1);
-			if (errno == EACCES)
-				exit(126);
-			exit(1);
+			perror("Error:");
+			exit(errno);
 		}
 	}
 	else
