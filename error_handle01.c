@@ -7,12 +7,12 @@
  */
 int _str_to_int(char *str)
 {
-    int i = 0;
-    int sign = 1;
-    unsigned long int l = 0;
+	int i = 0;
+	int sign = 1;
+	unsigned long int l = 0;
 
 	if (str == NULL)
-		return -1;
+		return (-1);
 
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
@@ -34,15 +34,15 @@ int _str_to_int(char *str)
 			l *= 10;
 			l += (str[i] - '0');
 			if (l > INT_MAX)
-			return -1;
+			return (-1);
 		}
 		else
 		{
-			return -1;
+			return (-1);
 		}
 		i++;
 	}
-	return (int)(l * sign);
+	return ((int)(l * sign));
 }
 
 /**
