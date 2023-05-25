@@ -122,7 +122,7 @@ void (*parse_func(char *cmd))(char **)
 {
 	int i;
 	function_map mapping[] = {
-		{"env", p_env}, {"exit", eexit}
+		{"env", env}, {"exit", exit}
 	};
 
 	for (i = 0; i < 2; i++)
