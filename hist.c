@@ -99,7 +99,7 @@ int read_hist_file(inf_o *inf)
 }
 
 /**
- * add_hist_link - add history to the link list
+ * add_hist_file - add history to the link list
  * @inf: struct
  * @b: char var
  * @lc: int var
