@@ -16,7 +16,7 @@ void commander(char **c_command, int t_command)
 	{
 		PID = fork();
 		if (PID == 0)
-			execute_command(c_command, t_command);
+			execcmd(c_command, t_command);
 		else
 		{
 			waitpid(PID, &status, 0);
