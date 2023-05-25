@@ -69,3 +69,24 @@ char *_app_str(char *dest, char *src)
 	*dest = *src;
 	return (ret);
 }
+
+/**
+ * build_path - build the full path for an executable
+ * @directory: directory in PATH
+ * @command: command name
+ * Return: full path or NULL if memory allocation fails
+ */
+char *build_path(char *dir, char *comm)
+{
+	size_t directory_len = strlen(dir);
+	size_t command_len = strlen(comm);
+	char *path = malloc(directory_len + command_len + 2);
+
+	if (!path)
+		return NULL;
+	strcpy(path, dir);
+	path[directory_len] = '/';
+	strcpy(path + directory_len + 1, comm);
+	path[directory_len + command_len + 1] = '\0';
+	return path;
+}
