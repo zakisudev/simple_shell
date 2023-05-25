@@ -90,7 +90,7 @@ char *check_path(char *cmd)
 
 	if (path == NULL || __strlen(path) == 0)
 		return (NULL);
-	path_cpy = malloc(sizeof(*path_cpy) * (_strlen(path) + 1));
+	path_cpy = malloc(sizeof(*path_cpy) * (__strlen(path) + 1));
 	__strcpy(path, path_cpy);
 	path_array = tokenizer(path_cpy, ":");
 	for (i = 0; path_array[i] != NULL; i++)
