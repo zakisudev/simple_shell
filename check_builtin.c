@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void penv(char **cmd __attribute__((unused)))
+void p_env(char **cmd __attribute__((unused)))
 {
 	int i;
 
