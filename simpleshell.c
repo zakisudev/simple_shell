@@ -49,26 +49,28 @@ int main(int ac, char **av)
  */
 ssize_t input_process(inf_o *inf)
 {
-         static char *b;
-         static size_t i, j, l;
-         ssize_t s = 0;
-         char **bs = &(inf->arg), *p;
+	static char *b;
+	static size_t i, j, l;
+	ssize_t s = 0;
+	char **bs = &(inf->arg), *p;
 
-         _putchar(BUFSH);
-         s = buf_save(inf, &b, &l);
-        if (l)
-        {
-                j = i;
-                p = b + i;
-                mod_chain(inf, b, &j, i, l);
-                while (j < l)
-                {
-                        i = l = 0;
-                        inf->cmdb_type = NORM;
-                }
-                 *bs = p;
-                return (_length_str(p));
-        }
-        *bs = b;
-        return (s);
+	if (isatty(STDIN_FILENO))
+		_putchar(BUFSH);
+
+	s = buf_save(inf, &b, &l);
+	if (l)
+	{
+		j = i;
+		p = b + i;
+		mod_chain(inf, b, &j, i, l);
+		while (j < l)
+		{
+			i = l = 0;
+			inf->cmdb_type = NORM;
+		}
+		*bs = p;
+		return (_length_str(p));
+	}
+	*bs = b;
+	return (s);
 }
