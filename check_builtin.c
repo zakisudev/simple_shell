@@ -29,7 +29,7 @@ void eexit(char **cmd)
 {
 	int token = 0, arg;
 
-	for (; tokenized_command[token] != NULL; token++)
+	for (; cmd[token] != NULL; token++)
 		;
 	if (token == 1)
 	{
