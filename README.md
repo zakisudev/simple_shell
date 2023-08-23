@@ -1,104 +1,54 @@
-0x16 C Simple Shell
+**Simple Shell - A Basic Shell Program in C**
 
-Instruction
+Welcome to the "Simple Shell" repository! This repository contains the source code for a basic shell program developed using the C programming language. The program allows users to execute commands and interact with the operating system in a command-line interface. Below is a list of the files included in this repository:
 
-* General
+    AUTHORS: List of contributors to the project.
+    README.md: Readme file for the project.
+    bfree.c: Free memory.
+    chains.c: Handle chained commands.
+    env01.c: Handle environment part 1.
+    env02.c: Handle environment part 2.
+    forker.c: Fix forking process.
+    get_cmd.c: Correction for spelling in getting commands.
+    get_input.c: Retrieve user input.
+    helper.c: Contains various helper functions.
+    hist.c: Handle command history.
+    hndle_blt01.c: Handle built-in commands (part 1).
+    hndle_blt02.c: Handle built-in commands (part 2).
+    hndle_error01.c: Handle errors (part 1).
+    hndle_error02.c: Handle errors (part 2).
+    hndle_lst01.c: List handling (part 1).
+    hndle_lst02.c: List handling (part 2).
+    hndle_str01.c: Handle strings (part 1).
+    hndle_str02.c: Handle strings (part 2).
+    hsh: Simple shell program (executable).
+    interactive.c: Implement interactive shell features.
+    man_1_shell: Man page for the shell.
+    mem_set.c: Memory allocator.
+    shell.c: Main shell interpreter.
+    shell.h: Function prototypes for the shell.
+    str_to_int.c: Spelling correction for string to int conversion.
+    tokenizer.c: Separate string into tokens.
 
-    Who designed and implemented the original Unix operating system
-    Who wrote the first version of the UNIX shell
-    Who invented the B programming language (the direct predecessor to the C programming language)
-    Who is Ken Thompson
-    How does a shell work
-    What is a pid and a ppid
-    How to manipulate the environment of the current process
-    What is the difference between a function and a system call
-    How to create processes
-    What are the three prototypes of main
-    How does the shell use the PATH to find the programs
-    How to execute another program with the execve system call
-    How to suspend the execution of a process until one of its children terminates
-    What is EOF / “end-of-file”?
+*Usage*
 
+To use the simple shell program, you can follow these steps:
 
-    Allowed editors: vi, vim, emacs
-    All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-    All your files should end with a new line
-    A README.md file, at the root of the folder of the project is mandatory
-    Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-    Your shell should not have any memory leaks
-    No more than 5 functions per file
-    All your header files should be include guarded
-    Use system calls only when you need to (why?)
-    Write a README with the description of your project
-    You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker
+    Compile the source files using a C compiler (e.g., GCC).
+    Run the compiled executable hsh to start the shell.
+    Enter commands just like you would in a regular shell.
 
+*Contributing*
 
-List of allowed functions and system calls
+Contributions to this project are welcome! If you'd like to contribute, please submit pull requests or issues on the GitHub repository.
+License
 
-    access (man 2 access)
-    chdir (man 2 chdir)
-    close (man 2 close)
-    closedir (man 3 closedir)
-    execve (man 2 execve)
-    exit (man 3 exit)
-    _exit (man 2 _exit)
-    fflush (man 3 fflush)
-    fork (man 2 fork)
-    free (man 3 free)
-    getcwd (man 3 getcwd)
-    getline (man 3 getline)
-    getpid (man 2 getpid)
-    isatty (man 3 isatty)
-    kill (man 2 kill)
-    malloc (man 3 malloc)
-    open (man 2 open)
-    opendir (man 3 opendir)
-    perror (man 3 perror)
-    read (man 2 read)
-    readdir (man 3 readdir)
-    signal (man 2 signal)
-    stat (__xstat) (man 2 stat)
-    lstat (__lxstat) (man 2 lstat)
-    fstat (__fxstat) (man 2 fstat)
-    strtok (man 3 strtok)
-    wait (man 2 wait)
-    waitpid (man 2 waitpid)
-    wait3 (man 2 wait3)
-    wait4 (man 2 wait4)
-    write (man 2 write)
+This project is open-source and available under the MIT License.
 
-Compilation
+Feel free to use and modify the code as needed. If you have any questions or need further assistance, please don't hesitate to reach out.
 
-Your shell will be compiled this way:
+Thank you for using the simple shell program! If you have any questions or need more information about any of the files or the program itself, please don't hesitate to contact us.
 
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-
-Testing
-
-Your shell should work like this in interactive mode:
-
-$ ./hsh
-($) /bin/ls
-hsh main.c shell.c
-($)
-($) exit
-$
-
-But also in non-interactive mode:
-
-$ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
-$
-$ cat test_ls_2
-/bin/ls
-/bin/ls
-$
-$ cat test_ls_2 | ./hsh
-hsh main.c shell.c test_ls_2
-hsh main.c shell.c test_ls_2
-$
-
-
-Programmed by:
+**Contributers:**
 Zekaria Mohammed
 Simmie Betru
